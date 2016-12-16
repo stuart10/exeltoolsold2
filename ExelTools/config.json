@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "ExelToolsConnection": "Data Source=TARSAPPIE\\EXELCORE;Integrated Security=False;User ID=sa;Password=5N8bjkly8#;Initial Catalog=stu;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  }
+}

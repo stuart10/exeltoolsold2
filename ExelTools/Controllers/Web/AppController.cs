@@ -1,19 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-
+﻿using ExelTools.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System.Linq;
 
 namespace ExelTools.Controllers.Web
 {
     public class AppController : Controller
     {
 
-        private readonly string workspaceCollection;
-        private readonly string workspaceId;
-        private readonly string accessKey;
-        private readonly string apiUrl;
+        //private readonly string workspaceCollection;
+        //private readonly string workspaceId;
+        //private readonly string accessKey;
+        //private readonly string apiUrl;
 
-        public AppController()
+        private IConfigurationRoot config;
+        private ExelToolsContext context;
+
+        public AppController(IConfigurationRoot config, ExelToolsContext context)
         {
+            this.config = config;
+            this.context = context;
             //this.workspaceCollection = System.Configuration.ConfigurationManager.AppSettings["powerbi:WorkspaceCollection"];
             //this.workspaceId = ConfigurationManager.AppSettings["powerbi:WorkspaceId"];
             //this.accessKey = ConfigurationManager.AppSettings["powerbi:AccessKey"];
@@ -55,6 +61,8 @@ namespace ExelTools.Controllers.Web
 
         public IActionResult UpdateWebProducts()
         {
+            var data = context.WebProducts.ToList();
+
             return View();
         }
 
